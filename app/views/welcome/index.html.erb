@@ -11,12 +11,12 @@
   </p>
 
   <p>
-    This will be a place to upload and shares apps that you've made and get instant feedback from otherse.
+    This will be a place to upload and share apps that you've made and get instant feedback from otherse.
   </p>
 
   <p class="lead">
     <%= form_for @email, url: create_email_path do |f| %>
-        <%= f.email_field :email, placeholder: "example@example.org" %>
+      <%= f.email_field :email, placeholder: "example@example.org" %>
       <div style="margin-top: 15px;">
         <%= f.submit 'Sign up', class: 'btn btn-primary' %>
       </div>
