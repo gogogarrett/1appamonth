@@ -1,0 +1,15 @@
+<% flash.each do |key, val| %>
+  <%= key %>
+  <%= val %>
+<% end %>
+
+<div class="inner cover">
+  <h1 class="cover-heading">Cover your page.</h1>
+  <p class="lead">1appamonth is a community  template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+  <p class="lead">
+    <%= form_for @email, url: create_email_path do |f| %>
+      <%= f.email_field :email %>
+      <%= f.submit %>
+    <% end %>
+  </p>
+</div>
