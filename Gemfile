@@ -9,6 +9,7 @@ group :production do
   gem 'pg'
   gem 'fog'
 end
+gem 'rails_12factor', group: :production
 
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
