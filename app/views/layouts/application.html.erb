@@ -1,41 +1,93 @@
+
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Make Apps, Upload Apps, Share them! Get shit done!">
-    <meta name="author" content="Garrett Heinlen">
+<html>
+<head>
+  <title>1appamonth - Learn, make, finish</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Bootstrap -->
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet" />
 
-    <title>1appamonth | A place to share app creations made in a month.</title>
+  <link href="http://fonts.googleapis.com/css?family=Abel|Open+Sans:400,600" rel="stylesheet" />
 
-    <%= stylesheet_link_tag    "application", media: "all" %>
-    <%= javascript_include_tag "application" %>
-    <%= csrf_meta_tags %>
+  <style>
 
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="site-wrapper">
+    /* http://css-tricks.com/perfect-full-page-background-image/ */
+    html {
+      background: url(assets/awesome.jpg) no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
 
-      <div class="site-wrapper-inner">
+    body {
+      padding-top: 20px;
+      font-size: 16px;
+      font-family: "Open Sans",serif;
+      background: transparent;
+    }
 
-        <div class="cover-container">
+    h1 {
+      font-family: "Abel", Arial, sans-serif;
+      font-weight: 400;
+      font-size: 40px;
+    }
 
-          <%= render "header" %>
+    /* Override B3 .panel adding a subtly transparent background */
+    .panel {
+      background-color: rgba(255, 255, 255, 0.9);
+    }
 
-          <%= yield %>
+    .margin-base-vertical {
+      margin: 40px 0;
+    }
+
+  </style>
+
+</head>
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 panel panel-default">
+
+        <% flash.each do |key, val| %>
+          <h1 class="margin-base-vertical alert alert-info <%= key %>"><%= val %></h1>
+        <% end %>
 
 
-          <%= render "footer" %>
+        <h1 class="margin-base-vertical">1appamonth</h1>
 
-        </div>
+        <p>
+          Our goal is to help inspire people to learn, make, and to simply finish things.
+        </p>
 
-      </div>
-    </div>
-  </body>
+        <p>
+          This will be a place to upload and shares apps that you've made and get instant feedback from others.
+        </p>
+
+        <p>
+          The aim is to make 1 app of any style (game / utility / business / anything) and spend the entire month tweaking, adding features, and adding the finishing details.
+        </p>
+
+        <h3> When we finish the site we will let you know!</h3>
+
+        <%= form_for @email, url: create_email_path, html: { class: "margin-base-vertical" } do |f| %>
+          <p class="input-group">
+            <span class="input-group-addon"><span class="icon-envelope"></span></span>
+            <%= f.email_field :email, placeholder: "heinleng@gmail.com", class: 'form-control input-lg'%>
+          </p>
+          <p class="text-center">
+            <button type="submit" class="btn btn-success btn-lg">Keep me posted</button>
+          </p>
+          </span>
+        </form>
+        <% end %>
+
+      </div><!-- //main content -->
+    </div><!-- //row -->
+  </div> <!-- //container -->
+
+</body>
 </html>

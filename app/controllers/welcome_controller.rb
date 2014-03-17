@@ -6,7 +6,7 @@ class WelcomeController < ApplicationController
 
   def create
     if @email = Email.create(email_params)
-      redirect_to root_path, notice: "Grats!"
+      redirect_to root_path, notice: "We'll be in touch."
     end
   end
 

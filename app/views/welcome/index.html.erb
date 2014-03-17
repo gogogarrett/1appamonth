@@ -4,12 +4,22 @@
 <% end %>
 
 <div class="inner cover">
-  <h1 class="cover-heading">Cover your page.</h1>
-  <p class="lead">1appamonth is a community  template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+  <h1 class="cover-heading" style="color: #428bca">1appamonth.</h1>
+
+  <p class='lead'>
+    Our goal is to help inspire people to learn, make, and to simply finish things.
+  </p>
+
+  <p>
+    This will be a place to upload and shares apps that you've made and get instant feedback from otherse.
+  </p>
+
   <p class="lead">
     <%= form_for @email, url: create_email_path do |f| %>
-      <%= f.email_field :email %>
-      <%= f.submit %>
+        <%= f.email_field :email, placeholder: "example@example.org" %>
+      <div style="margin-top: 15px;">
+        <%= f.submit 'Sign up', class: 'btn btn-primary' %>
+      </div>
     <% end %>
   </p>
 </div>
