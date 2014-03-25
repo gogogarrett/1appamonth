@@ -1,0 +1,11 @@
+- App.all.each do |app|
+  .col-md-6{style: "margin-bottom: 50px; border: 1px solid black;"}
+    = link_to app_path(app) do
+      .col-md-6
+        - app.app_images.each do |image|
+          = image_tag image.image_url(:thumb)
+      %hgroup.col-md-6
+        %h3 Title
+        %h4= app.title
+        %h3 Desc
+        %h4= truncate(app.desc, length: 30)
